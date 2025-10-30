@@ -33,17 +33,16 @@ old_pics_colorization/
 └── README.md
 
 
-
-## ⚙️ Installation
 ```
+# ⚙️ Installation
 git clone https://github.com/hosnei/old_pics_colorization.git
 cd old_pics_colorization
 
-# (optional) create environment
+## (optional) create environment
 python3 -m venv colorenv
 source colorenv/bin/activate
 
-# install dependencies
+## install dependencies
 pip install -r requirements.txt
 
 ---
@@ -64,15 +63,15 @@ Input format: (1, 64, 64) grayscale
 Output format: (3, 64, 64) RGB colorized image
 
 
-🏋️‍♂️ Training
+# 🏋️‍♂️ Training
 
 Convert the dataset (one-time operation):
-
+```
 python3 scripts/images64_split.py
 
 
 Train the base model:
-
+```
 python3 scripts/train64.py
 
 
@@ -93,7 +92,7 @@ Fine-tune an existing model:
 
 python3 scripts/resume_train64.py
 
-📊 Evaluation
+# 📊 Evaluation
 
 Evaluate L1 and SSIM metrics for any saved checkpoint:
 
@@ -110,7 +109,7 @@ Validation SSIM: 0.7900
 You can also plot training vs validation curves with scripts/overtune_curves.py
 to check for overfitting (high training accuracy but lower validation performance).
 
-🎨 Inference (Colorization)
+# 🎨 Inference (Colorization)
 
 Use the pretrained model to colorize new images:
 
@@ -132,7 +131,7 @@ All colorized results will be displayed in a 3-row grid:
 
 | Grayscale Input | Model Prediction | Original Color |
 
-🧩 Fine-Tuning Details
+# 🧩 Fine-Tuning Details
 
 Loss: 0.5 * L1 + 0.5 * (1 - SSIM)
 
@@ -150,12 +149,12 @@ Add light dropout (p=0.05–0.1) in decoder blocks
 
 Post-process outputs in HSV space to boost saturation & contrast
 
-🖼️ Example Results
+# 🖼️ Example Results
 Input (Gray)	Predicted Color	Original
 
 	
 	
-🧰 Notes
+# 🧰 Notes
 
 Default image size: 64×64
 
@@ -165,7 +164,7 @@ Models are saved in /Models/ and automatically reloaded for fine-tuning
 
 Supports GPU (cuda) or CPU fallback
 
-🧑‍💻 Author
+# 🧑‍💻 Author
 
 Housni TIBA
 Télécom Physique Strasbourg — Master ID
