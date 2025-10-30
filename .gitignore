@@ -1,0 +1,8 @@
+colorenv/
+data/
+_pycache_/
+*.zip
+*.tar
+*.pyc
+.DS_Store
+
