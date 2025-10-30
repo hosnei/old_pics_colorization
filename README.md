@@ -27,14 +27,15 @@ old_pics_colorization/
 │   ├── checkpoints/             # Saved models 
 │   ├── plots/                   # Optional metrics/curve visualizations
 │   ├── predictions/             # Example outputs (gray vs predicted vs color) 
-│   ├── chosen classes/          # Saves labels of chosen classes when working with subsets 
+│   └── chosen classes/          # Saves labels of chosen classes when working with subsets 
 │  
 │
 └── README.md
 
 
 
-⚙️ Installation
+## ⚙️ Installation
+```
 git clone https://github.com/hosnei/old_pics_colorization.git
 cd old_pics_colorization
 
@@ -45,8 +46,9 @@ source colorenv/bin/activate
 # install dependencies
 pip install -r requirements.txt
 
+---
 
-🧠 Model Overview
+## 🧠 Model Overview
 
 The model is a U-Net with skip connections between encoder and decoder stages:
 
