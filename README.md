@@ -35,8 +35,9 @@ old_pics_colorization/
 
 ```
 # ⚙️ Installation
-git clone https://github.com/hosnei/old_pics_colorization.git
 ```
+git clone https://github.com/hosnei/old_pics_colorization.git
+
 cd old_pics_colorization
 ```
 ## (optional) create environment
@@ -96,8 +97,9 @@ train_model(epochs=5, lr=1e-4, num_classes=100)
 
 
 Fine-tune an existing model:
-
+```
 python3 scripts/resume_train64.py
+```
 
 # 📊 Evaluation
 
@@ -178,6 +180,6 @@ Télécom Physique Strasbourg — Master ID
 
 Deep Learning & Vision Projects | U-Net, CNN, Colorization, Optical AI
 
-📧 Contact: LinkedIn Profile
+📧 LinkedIn Profile : Housni Tiba
 
 📦 GitHub: hosnei
