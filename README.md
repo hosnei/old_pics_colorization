@@ -36,14 +36,20 @@ old_pics_colorization/
 ```
 # ⚙️ Installation
 git clone https://github.com/hosnei/old_pics_colorization.git
+```
 cd old_pics_colorization
-
+```
 ## (optional) create environment
+```
 python3 -m venv colorenv
+
 source colorenv/bin/activate
+```
 
 ## install dependencies
+```
 pip install -r requirements.txt
+```
 
 ---
 
@@ -60,6 +66,7 @@ Decoder: upsampling via transposed convolutions + concatenation with encoder fea
 Output: 3-channel RGB prediction (via tanh, scaled to [–1, 1])
 
 Input format: (1, 64, 64) grayscale
+
 Output format: (3, 64, 64) RGB colorized image
 
 
@@ -68,12 +75,12 @@ Output format: (3, 64, 64) RGB colorized image
 Convert the dataset (one-time operation):
 ```
 python3 scripts/images64_split.py
-
+```
 
 Train the base model:
 ```
 python3 scripts/train64.py
-
+```
 
 You can specify:
 
@@ -95,13 +102,13 @@ python3 scripts/resume_train64.py
 # 📊 Evaluation
 
 Evaluate L1 and SSIM metrics for any saved checkpoint:
-
+```
 python3 scripts/evall.py
-
+```
 
 Example output:
 
-Model:  Models/unet_colorizer.pt
+Model:  Models/unet_colorizer_1K.pt
 Validation L1: 0.0920
 Validation SSIM: 0.7900
 
@@ -112,9 +119,9 @@ to check for overfitting (high training accuracy but lower validation performanc
 # 🎨 Inference (Colorization)
 
 Use the pretrained model to colorize new images:
-
+```
 python3 scripts/Unet64_preds.py
-
+```
 
 Then choose:
 
