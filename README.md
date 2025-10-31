@@ -130,12 +130,8 @@ python3 scripts/Unet64_preds.py
 Then choose:
 
 1️⃣  Test set (by class ID)
+
 2️⃣  Custom folder (real-world images → auto-grayscaled)
-
-
-Example:
-
-Enter folder path [default=data/online_test_images]:
 
 
 All colorized results will be displayed in a 3-row grid:
@@ -144,21 +140,19 @@ All colorized results will be displayed in a 3-row grid:
 
 # 🧩 Fine-Tuning Details
 
-Loss: 0.5 * L1 + 0.5 * (1 - SSIM)
+- Loss: 0.5 * L1 + 0.5 * (1 - SSIM)
 
-Optimizer: AdamW (lr=1e-4, weight_decay=5e-5)
+- Optimizer: AdamW (lr=1e-4, weight_decay=5e-5)
 
-Scheduler: CosineAnnealingLR
+- Scheduler: CosineAnnealingLR
 
-Data augmentation handled via torchvision transforms
+# Optional improvements:
 
-Optional improvements:
+- Replace BatchNorm with InstanceNorm2d
 
-Replace BatchNorm with InstanceNorm2d
+- Add light dropout (p=0.05–0.1) in decoder blocks
 
-Add light dropout (p=0.05–0.1) in decoder blocks
-
-Post-process outputs in HSV space to boost saturation & contrast
+- Post-process outputs in HSV space to boost saturation & contrast
 
 # 🖼️ Example Results
 Input (Gray)	Predicted Color	Original

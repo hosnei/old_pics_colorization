@@ -25,7 +25,7 @@ from images64_split import OUT_DIR, IMG_SIZE
 MODEL_PATH = "results/checkpoints/unet_colorizer_1k.pt"
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 NUM_SAMPLES = 7
-CUSTOM_DIR ="data/online_test_images/test2"
+CUSTOM_DIR ="data/online_test_images/test1"
 GRAY_TEMP_DIR = "data/online_test_images/gray_version"
 # ---------------------------------------------------------------------
 
@@ -137,8 +137,7 @@ def visualize_custom(model, folder_path=CUSTOM_DIR, n=NUM_SAMPLES):
     if not create_grayscale_versions(folder_path):
         return
 
-    imgs = [f for f in os.listdir(folder_path) if f.lower().endswith(('.png', '.jpg', '.jpeg'))]
-    chosen_imgs = random.sample(imgs, min(n, len(imgs)))
+    chosen_imgs = [f for f in os.listdir(folder_path) if f.lower().endswith(('.png', '.jpg', '.jpeg'))]
 
     gray_imgs, color_imgs, preds = [], [], []
 

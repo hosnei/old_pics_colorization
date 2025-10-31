@@ -94,27 +94,19 @@ class UNet(nn.Module):
 
 
 
-# LOSS FUNCTION (L1 + SSIM)
-# ---------------------------------------------------------------------
-def color_loss(pred, target, alpha=0.5):
-    l1 = torch.nn.functional.l1_loss(pred, target)
-    s = 1 - ssim(pred, target)
-    return alpha * l1 + (1 - alpha) * s
-
-
 
 # ---------------------------------------------------------------------
 # TRAINING PIPELINE
 # ---------------------------------------------------------------------
-num_classes=10
-def train_model(epochs=10, lr=1e-4, save_dir="results/checkpoints"):
+num_classes=100
+def train_model(epochs=30, lr=1e-4, save_dir="results/checkpoints"):
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     print("✅ Using device:", device)
 
     os.makedirs(save_dir, exist_ok=True)
 
     # Dataloaders
-    train_loader, val_loader, test_loader = get_dataloaders(num_classes=10)
+    train_loader, val_loader, test_loader = get_dataloaders(num_classes=num_classes)
 
     # Model, loss, optimizer
     model = UNet().to(device)
@@ -131,7 +123,7 @@ def train_model(epochs=10, lr=1e-4, save_dir="results/checkpoints"):
             gray, color = gray.to(device), color.to(device)
             optimizer.zero_grad()
             preds = model(gray)
-            loss = color_loss(preds, color)
+            loss = criterion(preds, color)
             loss.backward()
             optimizer.step()
             running_loss += loss.item()
@@ -158,7 +150,7 @@ def train_model(epochs=10, lr=1e-4, save_dir="results/checkpoints"):
         # Save best model
         if val_loss < best_val:
             best_val = val_loss
-            torch.save(model.state_dict(), os.path.join(save_dir, f"unet_colorizer_{num_classes}_color_loss.pt"))
+            torch.save(model.state_dict(), os.path.join(save_dir, f"unet_colorizer_{num_classes}.pt"))
             print(f"💾 Saved best model at epoch {epoch}")
 
     print("✅ Training complete.")
@@ -167,4 +159,4 @@ def train_model(epochs=10, lr=1e-4, save_dir="results/checkpoints"):
 
 # ---------------------------------------------------------------------
 if __name__ == "__main__":
-    train_model(epochs=10)
+    train_model(epochs=30)
