@@ -85,16 +85,16 @@ python3 scripts/train64.py
 
 You can specify:
 
-number of epochs (epochs=10)
+- number of epochs (epochs=10)
 
-learning rate (lr=1e-4)
+- learning rate (lr=1e-4)
 
-number of classes to train on (num_classes=100)
+- number of classes to train on (num_classes=100)
 
 Example:
-
+```
 train_model(epochs=5, lr=1e-4, num_classes=100)
-
+```
 
 Fine-tune an existing model:
 ```
@@ -111,7 +111,9 @@ python3 scripts/evall.py
 Example output:
 
 Model:  Models/unet_colorizer_1K.pt
+
 Validation L1: 0.0920
+
 Validation SSIM: 0.7900
 
 
