@@ -155,8 +155,11 @@ All colorized results will be displayed in a 3-row grid:
 - Post-process outputs in HSV space to boost saturation & contrast
 
 # 🖼️ Example Results
-Input (Gray)	Predicted Color	Original
+Here are some sample outputs from the U-Net colorization model:
 
+<p align="center">
+  <img src="results/predictions/Figure_hayena_unet_1K.png" alt="Example colorization results" width="700"/>
+</p>
 	
 	
 # 🧰 Notes
