@@ -168,7 +168,7 @@ Default image size: 64×64
 
 You can train on subsets (e.g., 10 or 100 ImageNet classes)
 
-Models are saved in /Models/ and automatically reloaded for fine-tuning
+Models are saved in /results/checkpoints and automatically reloaded for fine-tuning
 
 Supports GPU (cuda) or CPU fallback
 
