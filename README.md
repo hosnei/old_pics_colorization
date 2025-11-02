@@ -30,7 +30,8 @@ old_pics_colorization/
 │   └── chosen classes/          # Saves labels of chosen classes when working with subsets 
 │  
 │
-└── README.md
+├── README.md
+└── requirements.txt
 
 
 ```
